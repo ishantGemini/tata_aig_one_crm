@@ -4,13 +4,19 @@ const path = require("path");
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
-  filename: "./index.html"
+  filename: "./index.html",
+  inject: true,
+  favicon: "./public/favicon.ico",
+  manifest: "./public/manifest.json"
 });
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: [
+      { directory: path.join(__dirname, "dist") },
+      { directory: path.join(__dirname, "public") },
+    ],
     port: 3000,
     historyApiFallback: {
       index: "./public/index.html"
@@ -45,7 +51,7 @@ module.exports = {
   plugins: [
     htmlPlugin,
     new ModuleFederationPlugin({
-      name: "Host",
+      name: "Login",
       filename: "remoteEntry.js",
       remotes: {
         Shared: "Shared@http://localhost:3001/remoteEntry.js"
