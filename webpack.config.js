@@ -13,7 +13,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3000/"
   },
   devServer: {
     static: [
