@@ -6,6 +6,16 @@ declare module "Shared/Header" {
   export default Header;
 }
 
+declare module "Shared/SideNav" {
+  interface SideNavProps {
+    name: string;
+  }
+
+  const SideNav: React.ComponentType<SideNavProps>;
+
+  export default SideNav;
+}
+
 declare module "Shared/CustomSharedButton" {
   interface Props {
     text: string;
