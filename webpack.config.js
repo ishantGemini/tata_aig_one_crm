@@ -13,7 +13,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    publicPath: "http://localhost:3000/"
+    publicPath: "http://localhost:3000/",
   },
   devServer: {
     static: [
@@ -21,9 +21,10 @@ module.exports = {
       { directory: path.join(__dirname, "public") }
     ],
     port: 3000,
-    historyApiFallback: {
-      index: "./public/index.html"
-    }
+    historyApiFallback: true
+    // historyApiFallback: {
+    //   index: "./public/index.html"
+    // }
   },
 
   module: {
